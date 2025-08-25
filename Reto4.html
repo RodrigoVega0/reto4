@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión - Fundación Ayuda Mutua</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .presentation-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .slide {
+            padding: 60px 40px;
+            min-height: 80vh;
+            border-bottom: 5px solid #3498db;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slide:last-child {
+            border-bottom: none;
+        }
+        
+        .slide-number {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: #3498db;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .title-slide {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .main-title {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .foundation-logo {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            color: #3498db;
+            margin: 30px auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .section-title {
+            font-size: 2.5em;
+            color: #2c3e50;
+            border-bottom: 4px solid #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .problem-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: perspective(1000px) rotateY(-10deg);
+        }
+        
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .benefit-card {
+            background: linear-gradient(135deg, #27ae60, #229954);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .benefit-icon {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .architecture-diagram {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .layer {
+            background: white;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .layer-frontend {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+        }
+        
+        .layer-backend {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+        }
+        
+        .layer-database {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            color: white;
+        }
+        
+        .data-entities {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .entity-box {
+            background: white;
+            border: 3px solid #3498db;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .entity-title {
+            font-weight: bold;
+            color: #3498db;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        
+        .entity-fields {
+            font-size: 0.9em;
+            color: #555;
+        }
+        
+        .interface-mockup {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            min-height: 400px;
+            position: relative;
+        }
+        
+        .mockup-browser {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .mockup-header {
+            background: #e9ecef;
+            padding: 10px 20px;
+            border-bottom: 1px solid #dee2e6;
+            display: flex;
+            align-items: center;
+        }
+        
+        .mockup-dots {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .dot-red { background: #e74c3c; }
+        .dot-yellow { background: #f39c12; }
+        .dot-green { background: #27ae60; }
+        
+        .mockup-url {
+            margin-left: 20px;
+            background: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .mockup-content {
+            padding: 30px;
+            min-height: 300px;
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .dashboard-widget {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .widget-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #3498db;
+        }
+        
+        .flow-diagram {
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 40px;
+            margin: 30px 0;
+            overflow-x: auto;
+        }
+        
+        .flow-step {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            margin: 10px;
+            position: relative;
+            min-width: 150px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .flow-step::after {
+            content: '→';
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+            color: #3498db;
+        }
+        
+        .flow-step:last-child::after {
+            display: none;
+        }
+        
+        .deployment-architecture {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+        
+        .server-box {
+            background: white;
+            border: 3px solid #3498db;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            min-width: 200px;
+        }
+        
+        .server-icon {
+            font-size: 3em;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #3498db;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-left: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -45px;
+            top: 25px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #3498db;
+        }
+        
+        .phase-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .phase-duration {
+            background: #3498db;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #27ae60, #229954);
+            color: white;
+            text-align: center;
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+        
+        .cta-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .cta-button {
+            background: white;
+            color: #27ae60;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .slide {
+                padding: 30px 20px;
+            }
+            .main-title {
+                font-size: 2em;
+            }
+            .section-title {
+                font-size: 1.8em;
+            }
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            .data-entities {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        
+        <!-- Slide 1: Título -->
+        <div class="slide title-slide">
+            <div class="slide-number">1</div>
+            <div class="foundation-logo">🤝</div>
+            <h1 class="main-title">Sistema de Gestión Digital</h1>
+            <p class="subtitle">Transformando la Fundación Ayuda Mutua</p>
+            <p style="font-size: 1.2em; opacity: 0.8;">Una solución integral para eventos y gestión de donantes</p>
+        </div>
+        
+        <!-- Slide 2: Propósito del Proyecto -->
+        <div class="slide">
+            <div class="slide-number">2</div>
+            <h2 class="section-title">🎯 Propósito del Proyecto</h2>
+            
+            <div class="problem-stats">
+                <div class="stat-box">
+                    <span class="stat-number">50%</span>
+                    <div class="stat-label">Disminución en<br>asistencia a eventos</div>
+                </div>
+            </div>
+            
+            <div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 10px; padding: 25px; margin: 30px 0;">
+                <h4 style="color: #856404; margin-bottom: 15px;">⚙️ Especificaciones Técnicas Garantizadas</h4>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; color: #856404;">
+                    <div>
+                        <p><strong>💻 Servidor de Aplicaciones:</strong></p>
+                        <ul>
+                            <li>4 GB RAM, 2 CPU cores</li>
+                            <li>50 GB almacenamiento SSD</li>
+                            <li>1 TB ancho de banda mensual</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p><strong>🗃️ Servidor de Base de Datos:</strong></p>
+                        <ul>
+                            <li>8 GB RAM, 4 CPU cores</li>
+                            <li>100 GB almacenamiento SSD</li>
+                            <li>Tiempo de respuesta < 3 segundos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: #e8f5e8; border: 2px solid #27ae60; border-radius: 15px; padding: 25px;">
+                <h4 style="color: #27ae60; text-align: center; margin-bottom: 20px;">🛡️ Seguridad y Respaldo</h4>
+                <div style="display: flex; justify-content: space-around; text-align: center;">
+                    <div>
+                        <div style="font-size: 2em; color: #27ae60;">🔒</div>
+                        <p><strong>Encriptación SSL</strong><br>Todos los datos protegidos</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 2em; color: #27ae60;">💾</div>
+                        <p><strong>Backup Diario</strong><br>Retención de 30 días</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 2em; color: #27ae60;">🔐</div>
+                        <p><strong>Control de Acceso</strong><br>Permisos por usuario</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 2em; color: #27ae60;">📊</div>
+                        <p><strong>Monitoreo 24/7</strong><br>Alertas automáticas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 7: Diagrama de Flujo Arquitectónico -->
+        <div class="slide">
+            <div class="slide-number">7</div>
+            <h2 class="section-title">🔄 Flujo del Sistema</h2>
+            
+            <div class="flow-diagram">
+                <h3 style="color: #2c3e50; text-align: center; margin-bottom: 30px;">Flujo Principal de Operación</h3>
+                
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <div class="flow-step" style="background: #e74c3c;">👤 USUARIO</div>
+                    <div class="flow-step" style="background: #f39c12;">🔐 AUTENTICACIÓN</div>
+                    <div class="flow-step" style="background: #3498db;">🏠 DASHBOARD</div>
+                </div>
+                
+                <div style="text-align: center; margin: 40px 0;">
+                    <div style="font-size: 2em; color: #2c3e50;">↓</div>
+                    <div style="background: #34495e; color: white; padding: 20px; border-radius: 10px; display: inline-block; margin: 10px;">
+                        <strong>📋 MÓDULOS PRINCIPALES</strong>
+                    </div>
+                    <div style="font-size: 2em; color: #2c3e50;">↓</div>
+                </div>
+                
+                <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 30px 0;">
+                    <div class="flow-step" style="background: #9b59b6;">📅 EVENTOS</div>
+                    <div class="flow-step" style="background: #27ae60;">👥 DONANTES</div>
+                    <div class="flow-step" style="background: #e67e22;">✉️ INVITACIONES</div>
+                    <div class="flow-step" style="background: #2980b9;">📊 REPORTES</div>
+                </div>
+                
+                <div style="text-align: center; margin: 40px 0;">
+                    <div style="font-size: 2em; color: #2c3e50;">↓</div>
+                    <div style="background: #2c3e50; color: white; padding: 20px; border-radius: 10px; display: inline-block; margin: 10px;">
+                        <strong>🗄️ BASE DE DATOS (Almacenamiento Seguro)</strong>
+                    </div>
+                    <div style="font-size: 2em; color: #2c3e50;">↓</div>
+                </div>
+                
+                <div style="text-align: center;">
+                    <div class="flow-step" style="background: #8e44ad;">📧 SERVICIOS EXTERNOS</div>
+                    <p style="color: #7f8c8d; margin-top: 10px;">(Email, SMS, Notificaciones)</p>
+                </div>
+            </div>
+            
+            <div style="background: #f8f9fa; border-radius: 15px; padding: 30px; margin-top: 40px;">
+                <h4 style="color: #2c3e50; text-align: center; margin-bottom: 25px;">🔄 Proceso Específico: Gestión de Eventos</h4>
+                
+                <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px;">
+                    <div style="background: #3498db; color: white; padding: 12px 20px; border-radius: 20px; margin: 5px;">
+                        📅 Crear Evento
+                    </div>
+                    <span style="font-size: 1.5em; color: #3498db;">→</span>
+                    <div style="background: #e67e22; color: white; padding: 12px 20px; border-radius: 20px; margin: 5px;">
+                        📋 Definir Recursos
+                    </div>
+                    <span style="font-size: 1.5em; color: #3498db;">→</span>
+                    <div style="background: #9b59b6; color: white; padding: 12px 20px; border-radius: 20px; margin: 5px;">
+                        👥 Seleccionar Invitados
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin: 20px 0; font-size: 1.5em; color: #3498db;">↓</div>
+                
+                <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px;">
+                    <div style="background: #27ae60; color: white; padding: 12px 20px; border-radius: 20px; margin: 5px;">
+                        ✉️ Enviar Invitaciones
+                    </div>
+                    <span style="font-size: 1.5em; color: #3498db;">→</span>
+                    <div style="background: #f39c12; color: white; padding: 12px 20px; border-radius: 20px; margin: 5px;">
+                        ✅ Recibir Confirmaciones
+                    </div>
+                    <span style="font-size: 1.5em; color: #3498db;">→</span>
+                    <div style="background: #e74c3c; color: white; padding: 12px 20px; border-radius: 20px; margin: 5px;">
+                        🎯 Ejecutar Evento
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin: 20px 0; font-size: 1.5em; color: #3498db;">↓</div>
+                
+                <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px;">
+                    <div style="background: #34495e; color: white; padding: 12px 20px; border-radius: 20px; margin: 5px;">
+                        💰 Registrar Donaciones
+                    </div>
+                    <span style="font-size: 1.5em; color: #3498db;">→</span>
+                    <div style="background: #8e44ad; color: white; padding: 12px 20px; border-radius: 20px; margin: 5px;">
+                        📊 Generar Reportes
+                    </div>
+                    <span style="font-size: 1.5em; color: #3498db;">→</span>
+                    <div style="background: #16a085; color: white; padding: 12px 20px; border-radius: 20px; margin: 5px;">
+                        🔄 Seguimiento
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 8: Cronograma del Proyecto -->
+        <div class="slide">
+            <div class="slide-number">8</div>
+            <h2 class="section-title">📅 Cronograma del Proyecto</h2>
+            
+            <div style="text-align: center; margin-bottom: 30px;">
+                <div style="background: #3498db; color: white; padding: 15px 30px; border-radius: 25px; display: inline-block;">
+                    <strong>⏱️ Duración Total: 24 semanas (6 meses)</strong>
+                </div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="phase-title">🔍 Fase 1: Análisis y Diseño</div>
+                    <div class="phase-duration">4 semanas</div>
+                    <ul>
+                        <li>Validación final de requerimientos con su equipo</li>
+                        <li>Diseño detallado de base de datos personalizada</li>
+                        <li>Creación de mockups de interfaces específicas</li>
+                        <li>Definición de arquitectura técnica optimizada</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="phase-title">⚙️ Fase 2: Desarrollo Backend</div>
+                    <div class="phase-duration">8 semanas</div>
+                    <ul>
+                        <li>Configuración de infraestructura en la nube</li>
+                        <li>Desarrollo completo de base de datos</li>
+                        <li>Implementación de todas las funcionalidades principales</li>
+                        <li>Creación de APIs para integración de módulos</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="phase-title">🎨 Fase 3: Desarrollo Frontend</div>
+                    <div class="phase-duration">6 semanas</div>
+                    <ul>
+                        <li>Desarrollo de interfaces intuitivas para su equipo</li>
+                        <li>Integración completa con el sistema backend</li>
+                        <li>Pruebas de usabilidad con usuarios reales</li>
+                        <li>Optimización para dispositivos móviles y tablets</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="phase-title">🧪 Fase 4: Pruebas e Integración</div>
+                    <div class="phase-duration">4 semanas</div>
+                    <ul>
+                        <li>Pruebas exhaustivas de todos los módulos</li>
+                        <li>Pruebas de rendimiento y seguridad</li>
+                        <li>Corrección de errores y optimizaciones</li>
+                        <li>Pruebas reales con datos de la fundación</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="phase-title">🚀 Fase 5: Despliegue y Capacitación</div>
+                    <div class="phase-duration">2 semanas</div>
+                    <ul>
+                        <li>Configuración del entorno de producción</li>
+                        <li>Migración segura de datos existentes</li>
+                        <li>Capacitación completa para todo su equipo</li>
+                        <li>Entrega de manuales y documentación</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 9: Beneficios Cuantificables -->
+        <div class="slide">
+            <div class="slide-number">9</div>
+            <h2 class="section-title">📈 Beneficios Cuantificables</h2>
+            
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h3 style="color: #2c3e50;">¿Qué resultados concretos obtendrá la Fundación?</h3>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin: 40px 0;">
+                <div style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 30px; border-radius: 15px; text-align: center;">
+                    <div style="font-size: 4em; margin-bottom: 15px;">70%</div>
+                    <h4>Reducción en Tiempo de Gestión</h4>
+                    <p>El tiempo dedicado a tareas manuales se reducirá de 20 horas semanales a solo 6 horas</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #27ae60, #229954); color: white; padding: 30px; border-radius: 15px; text-align: center;">
+                    <div style="font-size: 4em; margin-bottom: 15px;">40%</div>
+                    <h4>Incremento en Asistencia</h4>
+                    <p>Esperamos recuperar la asistencia perdida y aumentarla un 40% en los primeros 6 meses</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #3498db, #2980b9); color: white; padding: 30px; border-radius: 15px; text-align: center;">
+                    <div style="font-size: 4em; margin-bottom: 15px;">80%</div>
+                    <h4>Mejora en Seguimiento</h4>
+                    <p>El seguimiento de donantes pasará de manual e irregular a automatizado y efectivo</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #f39c12, #e67e22); color: white; padding: 30px; border-radius: 15px; text-align: center;">
+                    <div style="font-size: 4em; margin-bottom: 15px;">300%</div>
+                    <h4>ROI Estimado</h4>
+                    <p>Retorno de inversión del 300% en el primer año de operación del sistema</p>
+                </div>
+            </div>
+            
+            <div style="background: #f8f9fa; border: 3px solid #3498db; border-radius: 15px; padding: 30px; margin-top: 40px;">
+                <h4 style="color: #2c3e50; text-align: center; margin-bottom: 25px;">💰 Impacto Financiero Proyectado</h4>
+                
+                <div style="display: flex; justify-content: space-around; text-align: center;">
+                    <div>
+                        <div style="font-size: 2.5em; color: #e74c3c; margin-bottom: 10px;">⚡</div>
+                        <h5>Ahorro Operativo</h5>
+                        <p><strong>$24,000/año</strong><br>Reducción en horas de trabajo manual</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5em; color: #27ae60; margin-bottom: 10px;">📈</div>
+                        <h5>Incremento Donaciones</h5>
+                        <p><strong>$60,000/año</strong><br>Mayor efectividad en eventos</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5em; color: #3498db; margin-bottom: 10px;">📊</div>
+                        <h5>Mejor Toma de Decisiones</h5>
+                        <p><strong>$18,000/año</strong><br>Optimización de recursos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 10: Entregables -->
+        <div class="slide">
+            <div class="slide-number">10</div>
+            <h2 class="section-title">📦 Entregables del Proyecto</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin: 40px 0;">
+                
+                <div style="background: linear-gradient(135deg, #3498db, #2980b9); color: white; padding: 30px; border-radius: 15px;">
+                    <div style="font-size: 3em; text-align: center; margin-bottom: 20px;">💻</div>
+                    <h4>Sistema Web Completo</h4>
+                    <ul>
+                        <li>Todos los módulos funcionales implementados</li>
+                        <li>Interfaz personalizada para la fundación</li>
+                        <li>Acceso desde cualquier dispositivo</li>
+                        <li>Sistema de usuarios y permisos</li>
+                    </ul>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #e67e22, #d35400); color: white; padding: 30px; border-radius: 15px;">
+                    <div style="font-size: 3em; text-align: center; margin-bottom: 20px;">🗄️</div>
+                    <h4>Base de Datos Optimizada</h4>
+                    <ul>
+                        <li>Estructura diseñada específicamente</li>
+                        <li>Migración de datos existentes</li>
+                        <li>Sistema de respaldos automáticos</li>
+                        <li>Seguridad y encriptación avanzada</li>
+                    </ul>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #9b59b6, #8e44ad); color: white; padding: 30px; border-radius: 15px;">
+                    <div style="font-size: 3em; text-align: center; margin-bottom: 20px;">📚</div>
+                    <h4>Documentación Completa</h4>
+                    <ul>
+                        <li>Manual técnico del sistema</li>
+                        <li>Guías de usuario paso a paso</li>
+                        <li>Procedimientos de mantenimiento</li>
+                        <li>Plan de respaldos y recuperación</li>
+                    </ul>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #27ae60, #229954); color: white; padding: 30px; border-radius: 15px;">
+                    <div style="font-size: 3em; text-align: center; margin-bottom: 20px;">👨‍🏫</div>
+                    <h4>Capacitación Personalizada</h4>
+                    <ul>
+                        <li>Entrenamiento para 5-10 usuarios</li>
+                        <li>Sesiones prácticas con datos reales</li>
+                        <li>Material de apoyo personalizado</li>
+                        <li>Soporte post-implementación</li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+            <div style="background: #fff3cd; border: 2px solid #ffeaa7; border-radius: 15px; padding: 30px; margin-top: 40px;">
+                <h4 style="color: #856404; text-align: center; margin-bottom: 20px;">🎁 Beneficios Adicionales Incluidos</h4>
+                <div style="display: flex; justify-content: space-around; color: #856404;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2em; margin-bottom: 10px;">🔧</div>
+                        <p><strong>Mantenimiento</strong><br>3 meses gratis</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2em; margin-bottom: 10px;">📞</div>
+                        <p><strong>Soporte Técnico</strong><br>6 meses incluidos</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2em; margin-bottom: 10px;">🔄</div>
+                        <p><strong>Actualizaciones</strong><br>Menores gratuitas</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2em; margin-bottom: 10px;">📈</div>
+                        <p><strong>Reportes</strong><br>Análisis mensuales</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 11: Llamada a la Acción -->
+        <div class="slide">
+            <div class="slide-number">11</div>
+            <div class="cta-section">
+                <h2 class="cta-title">🚀 ¡Transformemos juntos la Fundación!</h2>
+                
+                <div style="font-size: 1.3em; margin: 30px 0; opacity: 0.9;">
+                    <p>Este sistema no es solo tecnología, es la <strong>herramienta que necesitan</strong> para:</p>
+                </div>
+                
+                <div style="display: flex; justify-content: space-around; margin: 40px 0; flex-wrap: wrap;">
+                    <div style="text-align: center; margin: 15px;">
+                        <div style="font-size: 3em; margin-bottom: 10px;">🎯</div>
+                        <p><strong>Cumplir mejor su misión social</strong></p>
+                    </div>
+                    <div style="text-align: center; margin: 15px;">
+                        <div style="font-size: 3em; margin-bottom: 10px;">⚡</div>
+                        <p><strong>Optimizar sus recursos</strong></p>
+                    </div>
+                    <div style="text-align: center; margin: 15px;">
+                        <div style="font-size: 3em; margin-bottom: 10px;">📈</div>
+                        <p><strong>Aumentar su impacto social</strong></p>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.2); border-radius: 15px; padding: 30px; margin: 40px 0;">
+                    <h3 style="margin-bottom: 20px;">📋 Próximos Pasos</h3>
+                    <div style="text-align: left; max-width: 600px; margin: 0 auto;">
+                        <p>✅ <strong>1. Reunión de validación final</strong> - Confirmar todos los detalles</p>
+                        <p>✅ <strong>2. Firma del contrato</strong> - Formalizar el compromiso</p>
+                        <p>✅ <strong>3. Inicio del proyecto</strong> - Comenzar la transformación digital</p>
+                        <p>✅ <strong>4. Entregas periódicas</strong> - Ver el progreso cada semana</p>
+                    </div>
+                </div>
+                
+                <button class="cta-button" onclick="alert('¡Gracias por su interés! Nos pondremos en contacto pronto.')">
+                    📞 ¡Iniciemos este proyecto juntos!
+                </button>
+                
+                <div style="margin-top: 30px; font-size: 1.1em; opacity: 0.9;">
+                    <p>🤝 <em>Comprometidos con el éxito de la Fundación Ayuda Mutua</em></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer de la presentación -->
+        <div style="background: #2c3e50; color: white; padding: 40px; text-align: center;">
+            <h3>📞 Contacto</h3>
+            <p>Equipo de Desarrollo de Software</p>
+            <p>📧 desarrollo@sistemasfundacion.com | 📱 +52 (722) 123-4567</p>
+            <div style="margin-top: 20px; opacity: 0.7;">
+                <p>Sistema de Gestión para Fundación Ayuda Mutua - Agosto 2025</p>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html><div class="stat-box">
+                    <span class="stat-number">100%</span>
+                    <div class="stat-label">Gestión manual<br>en papel</div>
+                </div>
+            </div>
+            
+            <div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 10px; padding: 30px; margin: 40px 0;">
+                <h3 style="color: #856404; margin-bottom: 20px;">🚀 Nuestro Objetivo</h3>
+                <p style="font-size: 1.2em; color: #856404; margin: 0;">
+                    Desarrollar un <strong>sistema integral de gestión</strong> que automatice los procesos críticos de la fundación, 
+                    enfocándose en <strong>revertir la disminución de asistencia a eventos</strong> y modernizar la administración 
+                    de fondos destinados a programas sociales.
+                </p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <h4>Incrementar Asistencia</h4>
+                    <p>Invitaciones automatizadas y seguimiento efectivo para recuperar participación</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h4>Mejor Gestión de Donantes</h4>
+                    <p>Historial completo y seguimiento programado de cada donante</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h4>Automatización</h4>
+                    <p>Eliminar procesos manuales propensos a errores y pérdida de información</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h4>Reportes Inteligentes</h4>
+                    <p>Análisis de datos para toma de decisiones basada en información real</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 3: Diseño de Datos -->
+        <div class="slide">
+            <div class="slide-number">3</div>
+            <h2 class="section-title">💾 Diseño de Datos</h2>
+            
+            <p style="font-size: 1.2em; margin-bottom: 30px; text-align: center;">
+                La base de datos está diseñada para capturar toda la información crítica de la fundación
+            </p>
+            
+            <div class="data-entities">
+                <div class="entity-box">
+                    <div class="entity-title">📅 EVENTOS</div>
+                    <div class="entity-fields">
+                        • ID_Evento<br>
+                        • Nombre, Fecha, Lugar<br>
+                        • Capacidad_Maxima<br>
+                        • Recursos_Necesarios<br>
+                        • Presupuesto_Asignado<br>
+                        • Estado, Responsable
+                    </div>
+                </div>
+                
+                <div class="entity-box">
+                    <div class="entity-title">👥 DONANTES</div>
+                    <div class="entity-fields">
+                        • ID_Donante<br>
+                        • Nombre_Completo<br>
+                        • Email, Teléfono<br>
+                        • Dirección<br>
+                        • Tipo_Donante<br>
+                        • Fecha_Registro, Estado
+                    </div>
+                </div>
+                
+                <div class="entity-box">
+                    <div class="entity-title">✉️ INVITACIONES</div>
+                    <div class="entity-fields">
+                        • ID_Invitacion<br>
+                        • ID_Evento, ID_Donante<br>
+                        • Fecha_Envio<br>
+                        • Estado_Confirmacion<br>
+                        • Fecha_Respuesta<br>
+                        • Tipo_Invitacion
+                    </div>
+                </div>
+                
+                <div class="entity-box">
+                    <div class="entity-title">💸 DONACIONES</div>
+                    <div class="entity-fields">
+                        • ID_Donacion<br>
+                        • ID_Donante, ID_Evento<br>
+                        • Monto, Fecha_Donacion<br>
+                        • Tipo_Donacion<br>
+                        • Descripción<br>
+                        • Estado_Recibido
+                    </div>
+                </div>
+                
+                <div class="entity-box">
+                    <div class="entity-title">🏠 BENEFICIARIOS</div>
+                    <div class="entity-fields">
+                        • ID_Beneficiario<br>
+                        • Nombre Completo<br>
+                        • Programa_Social<br>
+                        • Fecha_Ingreso<br>
+                        • Estado_Activo<br>
+                        • Observaciones
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: #e8f5e8; border: 2px solid #27ae60; border-radius: 10px; padding: 20px; margin-top: 30px;">
+                <h4 style="color: #27ae60; margin-bottom: 15px;">🔗 Relaciones Clave:</h4>
+                <ul style="color: #2d5a2d;">
+                    <li>Un <strong>EVENTO</strong> puede tener múltiples <strong>INVITACIONES</strong> y <strong>DONACIONES</strong></li>
+                    <li>Un <strong>DONANTE</strong> puede participar en múltiples eventos y hacer varias donaciones</li>
+                    <li>Los <strong>BENEFICIARIOS</strong> están organizados por programas sociales específicos</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Slide 4: Diseño de Arquitectura -->
+        <div class="slide">
+            <div class="slide-number">4</div>
+            <h2 class="section-title">🏗️ Arquitectura del Sistema</h2>
+            
+            <div class="architecture-diagram">
+                <h3 style="color: #2c3e50; margin-bottom: 30px;">Arquitectura de 3 Capas</h3>
+                
+                <div class="layer layer-frontend">
+                    <h4>📱 CAPA DE PRESENTACIÓN</h4>
+                    <p><strong>Tecnología:</strong> Aplicación Web Responsiva (HTML5, CSS3, JavaScript)</p>
+                    <p><strong>Funcionalidad:</strong> Interfaces intuitivas para diferentes roles de usuario</p>
+                    <p><strong>Dispositivos:</strong> Computadoras, tablets y teléfonos móviles</p>
+                </div>
+                
+                <div style="text-align: center; font-size: 2em; color: #3498db;">↕️</div>
+                
+                <div class="layer layer-backend">
+                    <h4>⚙️ CAPA DE LÓGICA DE NEGOCIO</h4>
+                    <p><strong>Tecnología:</strong> Servidor de aplicaciones (Node.js)</p>
+                    <p><strong>Funcionalidad:</strong> Procesamiento de reglas, validaciones, cálculos</p>
+                    <p><strong>Servicios:</strong> Gestión de eventos, invitaciones, reportes</p>
+                </div>
+                
+                <div style="text-align: center; font-size: 2em; color: #3498db;">↕️</div>
+                
+                <div class="layer layer-database">
+                    <h4>🗄️ CAPA DE DATOS</h4>
+                    <p><strong>Base de Datos:</strong> MySQL con optimización de consultas</p>
+                    <p><strong>Funcionalidad:</strong> Almacenamiento seguro y persistente</p>
+                    <p><strong>Características:</strong> Respaldos automáticos, encriptación de datos</p>
+                </div>
+            </div>
+            
+            <div style="display: flex; justify-content: space-around; margin-top: 40px;">
+                <div style="text-align: center; background: #f8f9fa; padding: 20px; border-radius: 10px; flex: 1; margin: 0 10px;">
+                    <div style="font-size: 2em; color: #3498db;">📊</div>
+                    <h4>Módulo de Gestión de Eventos</h4>
+                </div>
+                <div style="text-align: center; background: #f8f9fa; padding: 20px; border-radius: 10px; flex: 1; margin: 0 10px;">
+                    <div style="font-size: 2em; color: #e74c3c;">👥</div>
+                    <h4>Sistema CRM de Donantes</h4>
+                </div>
+                <div style="text-align: center; background: #f8f9fa; padding: 20px; border-radius: 10px; flex: 1; margin: 0 10px;">
+                    <div style="font-size: 2em; color: #27ae60;">✉️</div>
+                    <h4>Invitaciones Automatizadas</h4>
+                </div>
+                <div style="text-align: center; background: #f8f9fa; padding: 20px; border-radius: 10px; flex: 1; margin: 0 10px;">
+                    <div style="font-size: 2em; color: #f39c12;">📈</div>
+                    <h4>Generador de Reportes</h4>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 5: Diseño de Interfaz -->
+        <div class="slide">
+            <div class="slide-number">5</div>
+            <h2 class="section-title">🖥️ Diseño de Interfaz</h2>
+            
+            <div style="display: flex; gap: 30px; margin-bottom: 40px;">
+                <div style="flex: 1; background: #e8f4fd; padding: 25px; border-radius: 15px;">
+                    <h4 style="color: #2980b9;">🎨 Principios de Diseño</h4>
+                    <ul>
+                        <li><strong>Simplicidad:</strong> Interfaces limpias y fáciles de navegar</li>
+                        <li><strong>Consistencia:</strong> Elementos uniformes en todas las pantallas</li>
+                        <li><strong>Accesibilidad:</strong> Diseño inclusivo para todos los usuarios</li>
+                        <li><strong>Responsividad:</strong> Adaptación a diferentes tamaños de pantalla</li>
+                    </ul>
+                </div>
+                <div style="flex: 1; background: #e8f8f5; padding: 25px; border-radius: 15px;">
+                    <h4 style="color: #27ae60;">✨ Características Clave</h4>
+                    <ul>
+                        <li>Navegación intuitiva con menús claros</li>
+                        <li>Colores suaves que no cansen la vista</li>
+                        <li>Iconos universales fáciles de entender</li>
+                        <li>Formularios simples con validación en tiempo real</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="interface-mockup">
+                <div class="mockup-browser">
+                    <div class="mockup-header">
+                        <div class="mockup-dots">
+                            <div class="dot dot-red"></div>
+                            <div class="dot dot-yellow"></div>
+                            <div class="dot dot-green"></div>
+                        </div>
+                        <div class="mockup-url">sistema-fundacion.com/dashboard</div>
+                    </div>
+                    <div class="mockup-content">
+                        <h3 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px;">
+                            🏠 Dashboard Principal - Fundación Ayuda Mutua
+                        </h3>
+                        <div class="dashboard-grid">
+                            <div class="dashboard-widget">
+                                <div class="widget-icon">📅</div>
+                                <h4>Próximos Eventos</h4>
+                                <div style="font-size: 2em; font-weight: bold; color: #3498db;">5</div>
+                                <p>Este mes</p>
+                            </div>
+                            <div class="dashboard-widget">
+                                <div class="widget-icon">👥</div>
+                                <h4>Donantes Activos</h4>
+                                <div style="font-size: 2em; font-weight: bold; color: #27ae60;">247</div>
+                                <p>Registrados</p>
+                            </div>
+                            <div class="dashboard-widget">
+                                <div class="widget-icon">💰</div>
+                                <h4>Donaciones del Mes</h4>
+                                <div style="font-size: 2em; font-weight: bold; color: #e67e22;">$45,200</div>
+                                <p>Recaudado</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                            <h4 style="margin-bottom: 15px;">📊 Resumen de Actividad</h4>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <p><strong>Último evento:</strong> Taller de Lectura - 15 participantes</p>
+                                    <p><strong>Próximo evento:</strong> Entrega de Alimentos - 25 de agosto</p>
+                                </div>
+                                <div style="background: #3498db; color: white; padding: 10px 20px; border-radius: 20px;">
+                                    ✉️ 12 invitaciones pendientes
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 6: Diseño de Despliegue -->
+        <div class="slide">
+            <div class="slide-number">6</div>
+            <h2 class="section-title">☁️ Arquitectura de Despliegue</h2>
+            
+            <div class="deployment-architecture">
+                <div class="server-box">
+                    <div class="server-icon">🌐</div>
+                    <h4>Servidor Web</h4>
+                    <p><strong>Hosting:</strong> Nube (AWS/Google Cloud)</p>
+                    <p><strong>Características:</strong></p>
+                    <ul style="text-align: left; font-size: 0.9em;">
+                        <li>Alta disponibilidad 99.9%</li>
+                        <li>Escalabilidad automática</li>
+                        <li>Certificados SSL</li>
+                        <li>Monitoreo 24/7</li>
+                    </ul>
+                </div>
+                
+                <div style="font-size: 2em; color: #3498db;">⟷</div>
+                
+                <div class="server-box">
+                    <div class="server-icon">🗄️</div>
+                    <h4>Base de Datos</h4>
+                    <p><strong>Configuración:</strong> Servidor dedicado</p>
+                    <p><strong>Características:</strong></p>
+                    <ul style="text-align: left; font-size: 0.9em;">
+                        <li>Respaldos automáticos diarios</li>
+                        <li>Replicación de datos</li>
+                        <li>Encriptación avanzada</li>
+                        <li>Acceso restringido</li>
+                    </ul>
+                </div>
+                
